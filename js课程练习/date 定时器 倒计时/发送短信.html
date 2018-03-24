@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="message">
+			发送短信
+		</button>
+	</body>
+	<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementsByTagName("button")[0];
+				var a = 5;
+				btn.onclick = function(){
+					btn.disabled = true;
+					var clock =	setInterval(function daojishi(){
+						btn.innerHTML = "还有"+a+"秒";
+						a--;
+						if(a<-1){  //一秒内无法做到跳两次，所以预留一秒反应
+							clearInterval(clock);
+							btn.disabled=false;
+							btn.innerHTML="重新发送短信";
+							a=5;
+						}
+					},1000);
+				}
+				
+			}
+	</script>
+</html>

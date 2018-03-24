@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			.pink{
+				width: 100px;
+				height: 80px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background-color: lightpink;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="world" id="world">
+			为看名没开门施蒂利克吗麦克雷什么的考拉玫琳凯爱上你的离开谁极爱哦大家哦ID上电脑书记啊开动脑筋萨博的
+			为看名没开门施蒂利克吗麦克雷什么的考拉玫琳凯爱上你的离开谁极爱哦大家哦ID上电脑书记啊开动脑筋萨博的
+		</div>
+		<div class="noword">
+			为看名没开门施蒂利克吗麦克雷什么的考拉玫琳凯爱上你的离开谁极爱哦大家哦ID上电脑书记啊开动脑筋萨博的
+		</div>
+		<div class="pink" id="pink"></div>
+	</body>
+	<script type="text/javascript">
+		function $(id) {return document.getElementById(id)}
+		$("world").onmouseup = function(event){
+			var event =event|| window.event;
+			var mousex =event.clientX;
+			var mousey = event.clientY;
+			if(window.getSelection){
+				var txt =window.getSelection().toString();//先获取文字在判断txt是否为空
+			}else{
+				var txt = document.selection().createRange().text;
+			}
+			if(txt!=null){
+				show(mousex,mousey,txt);
+			}
+		}
+//		不可以为document.onclick 不然会被覆盖
+		document.onmousedown = function(event){
+			var event =event||window.event;
+			var targetid = event.target?event.target.id:event.srcElement.id;
+			if(targetid != "pink"){
+				$("pink").style.display="none";
+			}
+		}
+		function show(x,y,world){
+			$("pink").style.left = x+"px";
+			$("pink").style.top = y+"px";
+			$("pink").innerHTML = world;
+			$("pink").style.display = "block";
+
+		}
+	</script>
+</html>

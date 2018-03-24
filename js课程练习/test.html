@@ -1,0 +1,36 @@
+<!--clientY以可视区域为基准点 即窗口 相当于固定定位
+而pageY以文档为基准点 绝对定位
+screenY以屏幕-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				background-color: lightpink;
+				width: 200px;
+				height: 200px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+		</div>
+	</body>
+	<script type="text/javascript">
+//		document.onclick = function(event){
+//			var event = event||window.event;
+//			alert(event.clientY);//文档 
+//			alert(event.screenY);//屏幕
+//		}
+var div =document.getElementById("box");
+div.onmousemove=function(event){
+	var event = event||window.event;
+	 var x = event.clientX - div.offsetLeft;
+	 var y =event.clientY - div.offsetTop;
+	 div.innerHTML=x+" "+y;
+}
+	</script>
+</html>

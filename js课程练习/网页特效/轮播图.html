@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.box{
+				width: 604px;
+				height: 402px;
+				overflow: hidden;
+				margin: 20px auto;
+				position: relative;
+			}
+			img{
+				width:600px;
+				height: 400px;
+			}
+			.num{
+				position: absolute;
+				left:200px;
+				bottom: 20px;
+			}
+			span{
+				margin-left: 20px;
+				background-color: lightpink;
+				border-radius: 40%;
+				display: inline-block;
+				width: 18px;
+				height: 20px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.acolor{
+				background-color: lawngreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div class="photo">
+				<ul>
+					<li><img src="images/11.jpg" alt="" /></li>
+					<li><img src="images/22.jpg" alt="" /></li>
+					<li><img src="images/33.jpg" alt="" /></li>
+					<li><img src="images/44.jpg" alt="" /></li>
+					<li><img src="images/55.jpg" alt="" /></li>
+					<li><img src="images/66.jpg" alt="" /></li>
+				</ul>
+			</div>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var number =document.createElement("div");
+			number.className="num";
+			var box = document.getElementById("box");
+			box.appendChild(number);
+			var li = document.getElementsByTagName("li");
+			for(var i=0;i<li.length;i++){
+				var span = document.createElement("span");
+				span.innerHTML=i+1;
+				number.appendChild(span);
+			}
+			for(var a=0;a<li.length;a++){
+				var spans=document.getElementsByTagName("span");
+				spans[a].onmouseover=function(){
+					this.setAttribute("class","acolor");//类叠加
+				}
+				spans[a].onmouseout=function(){
+					this.classList.remove("acolor");
+				}
+				
+			}
+		}
+	</script>
+</html>

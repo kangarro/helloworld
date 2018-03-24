@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.clock{
+				margin:10px auto;
+				background: url(../images/clock.jpg);
+				width: 600px;
+				height: 600px;
+				position: relative;
+			}
+			.clock div{
+				width: 100%;
+				height: 100%;  
+				/*每个盒子都占父盒子的100%*/
+				position: absolute;
+				left:0px;
+				top: 0px;
+			}
+			.hour{
+				background: url(../images/hour.png) no-repeat center center;
+				
+			}
+			.minute{
+				background: url(../images/minute.png) no-repeat center center;
+			}
+			.second{
+				background: url(../images/second.png) no-repeat center center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock" id="clock">
+			<div class="hour"></div>
+			<div class="minute"></div>
+			<div class="second"></div> 
+		</div>
+		<script type="text/javascript">
+			
+//			一圈360°,12h,1h为30°;
+//			alert(date.getHours()+" "+date.getMinutes()+" "+date.getSeconds());
+
+       		function a(){
+       			var date = new Date();
+				var millseconds =date.getMilliseconds();
+				var hour = date.getHours()+date.getMinutes()/60;
+				var minute =date.getMinutes()+date.getSeconds()/60;
+				var seconds =date.getSeconds()+millseconds/1000;
+	       		var clock =document.getElementById("clock");
+				clock.children[0].style.webkitTransform="rotate("+hour*30+"deg)";
+				clock.children[1].style.webkitTransform="rotate("+minute*6+"deg)";
+				clock.children[2].style.transform="rotate("+seconds*6+"deg)";
+       		}
+
+       		setInterval(a,10);
+       		
+			
+		</script>
+	</body>
+</html>

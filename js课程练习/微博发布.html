@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style-type: none;
+			}
+			*{
+				margin: 0px;
+				padding: 0px;	
+			}
+			.box{
+				width:600px;
+				height: 200px;
+				border: 1px solid #999999;
+				margin: 100px auto;
+				/*line-height: 200px;*/
+				padding: 25px 0;
+			}
+			textarea{
+				width: 400px;
+				height: 100px;
+				resize: none; 
+			}
+			li{
+				border-bottom: 1px dotted;
+				width:400px;
+				margin-left: 70px;
+				line-height: 30px;
+				height: 30px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			微博发布:
+			<textarea id="word"></textarea>
+			<button>发布</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var button=document.getElementsByTagName("button");
+			var word=document.getElementById("word");
+			var ul=document.createElement("ul");
+			word.parentNode.appendChild(ul);
+			button[0].onclick=function(){
+				if(word.value==""){
+					alert("请输入");
+					return;
+				}
+				var li=document.createElement("li");
+				ul.insertBefore(li,ul.children[0]);
+				li.innerHTML=word.value;
+				word.value=" ";
+				
+			}
+		}
+	</script>
+</html>

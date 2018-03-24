@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		var time=10;
+		setTimeout(a,1000);
+		var box =document.getElementById("box");
+		function a(){
+			time--;
+			box.innerHTML = "<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E7%99%BE%E5%BA%A6'>本页面在"+time +"秒之后跳转</a>";
+//			这一句放后面等于0时会显示
+
+			if(time<=0){
+				window.location.href="https://www.baidu.com/s?ie=UTF-8&wd=%E7%99%BE%E5%BA%A6";
+			}else{
+				setTimeout(a,1000);	
+			}
+		}
+		
+	</script>
+</html>

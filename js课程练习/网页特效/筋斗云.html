@@ -1,0 +1,91 @@
+<!--技巧  用offsetleft来接收位置
+用style.left来改变位置
+//			style.left如何没设置会返回空字符串-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #000000;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.box{
+				width: 600px;;
+				height: 42px;
+				background-color: white;
+				margin: 0 auto;
+				position: relative;
+			}
+			ul{
+				width: 450px;
+				height: 42px;
+				position: absolute;
+			}
+			ul li{
+				width:83px;
+				height: 42px;
+				float: left;
+				line-height: 42px;
+				text-align: center;
+			}
+			.pic1{
+				position: absolute;
+				bottom: 4px;
+				right: 0;				
+			}
+			.pic{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<div class="box">
+		<div class="pic" id="pic">
+			<img src="images/cloud.gif"/>
+		</div>
+		<ul id="word">
+			<li>我们你好</li>
+			<li>开开心心</li>
+			<li>明明白白</li>
+			<li>星星分分</li>
+			<li>美美莉莉</li>
+		</ul>
+		<div class="pic1">
+			<img src="images/rss.png"/>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var leader=0;var target=0;var current =0;
+		var li = document.getElementById("word").children;
+		for(var i=0;i<li.length;i++){
+			li[i].onmouseover = function(){
+				target = this.offsetLeft;
+			}
+
+			li[i].onclick =function(){
+				current = this.offsetLeft;//如果点击就把当前位置保留
+			}
+			li[i].onmouseout=function(){
+				target = current;//移走时将当前位置赋给target
+			}		
+		}
+		setInterval(function(){
+			leader = leader + (target - leader)/10;
+			var pic = document.getElementById("pic");
+			pic.style.left =leader+"px";
+		},3)
+		
+	</script>
+</html>

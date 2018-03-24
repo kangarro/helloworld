@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="a"></div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			setInterval(a,1000);
+			function a(){
+				var date = new Date("2018/3/11 20:13:00");
+				var now = new Date();
+				var s =(date.getTime()-now.getTime())/1000;
+				
+				
+				var day = parseInt(s/3600/24);
+				var hour = parseInt(s/3600%24);
+				var minutes = parseInt(s/60%60);
+				var seconds =parseInt(s%60);
+				var a =document.getElementById("a");
+				
+				
+				
+				day<10?day="0"+day:day;
+				hour<10?hour="0"+hour:hour;
+				minutes<10?minutes="0"+minutes:minutes;
+				seconds<10?seconds="0"+seconds:seconds;
+				a.innerHTML=day+"天"+","+hour+"时"+","+minutes+"分"+seconds+"秒";
+			}
+		}
+	</script>
+</html>

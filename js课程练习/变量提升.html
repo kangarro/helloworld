@@ -1,0 +1,40 @@
+<!--假如函数体内为var a=b=c=9;此时a为局部,而bc为全局;-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			alert(a);
+			a();
+			var a=3;
+			function a(){
+				alert(10)}
+			alert(a);
+			a=6;
+			a(); 
+//			函数提示错误
+			
+//			function a(){
+//				alert(10)}
+//			var a;
+//			alert(a);
+//			a();
+//			a=3;
+//			alert(a);
+//			a=6;
+//			a();
+3  function square(n) {
+4  		total = n*n;
+5  		return total;
+}
+	var total;
+	var number;
+	total=10;
+	 number = square(5);
+	 alert(number);
+		</script>
+	</body>
+</html>

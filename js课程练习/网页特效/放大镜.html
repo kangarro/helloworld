@@ -1,0 +1,94 @@
+big要放在大盒子里才好定位
+黄色块不能独立放
+控制移动移出对象时不能用大盒子，因为big在大盒子中，若这样指big时big不消失
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			.box{
+				width: 350px;
+				height: 350px;
+				margin: 100px 200px;
+				border: 1px solid silver;
+				position: relative;
+			}
+			.small{
+				width: 350px;
+				height: 350px;
+				position: relative;
+			}
+			.big{
+				width: 400px;
+				height: 400px;
+				overflow: hidden;
+				position: absolute;
+				left:380px;
+				top:0;
+				border: 1px silver solid;
+				display: none;
+			}
+			.blo{
+				background-color: #FFFFCC;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				cursor: move;
+			}
+			#photo{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div class="small">
+				<img src="images/001.jpg"/>  
+				<div class="blo"></div>
+			</div>
+			<div class="big">
+				<img src="images/0001.jpg" id="photo"/>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function $(id) 	{return document.getElementById(id);}
+		var small = $("box").children[0];
+		var big =$("box").children[1];
+		var block = $("box").children[0].children[1];
+		var img = $("box").children[1].children[0];
+		window.onload = function(){
+			small.onmouseover = function(){
+				block.style.display = "block";
+				big.style.display = "block";
+			}
+			small.onmouseout = function(){
+				block.style.display = "none";
+				big.style.display = "none";
+			}
+			small.onmousemove = function(event){
+				var event = event || window.event;
+				var left=event.clientX - $("box").offsetLeft - block.offsetWidth/2;
+				var top = event.clientY - $("box").offsetTop -block.offsetHeight/2;
+				if(left<0)left=0;
+				if(top<0) top=0;
+				if(left>250)left=250;
+				if(top>250) top = 250;
+				block.style.left = left+"px";
+				block .style.top = top+"px";
+				
+				img.style.left = -left * (big.offsetWidth /small.offsetWidth )+"px";
+				img.style.top = -top * (big.offsetHeight /small.offsetHeight )+"px";
+				
+			}
+		}
+	</script>
+</html>

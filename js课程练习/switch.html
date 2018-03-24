@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<select name="fruit" id="fruit">
+			<option value="0">苹果</option>
+			<option value="1">梨</option>
+			<option value="2">芒果</option>
+			<option value="3">西瓜</option>
+			<option >瓜</option>
+		</select>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+				var fruit = document.getElementById("fruit");
+				fruit.onchange = function() {
+					switch(this.value) {
+						case "0":
+							alert("apple");
+							break;
+						case "1":
+							alert("pear");
+							break;
+						case "2":
+							alert("mango");
+							break;
+						case "3":
+							alert("xigua");
+							break;
+						default :
+							alert("gua");
+						}
+					}
+				}
+		// 参数要加双引号
+	</script>
+
+</html>

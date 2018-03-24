@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.box{
+			width: 512px;
+			height: 500px;
+			overflow: hidden;
+			margin: 10px auto;
+			position: relative;
+		}
+		img{
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		.top{
+			top: 0;
+			left: 0;
+			position: absolute;
+			height: 250px;
+			width: 512px;
+		}
+		.bottom{
+			bottom: 0;
+			left:0;
+			position:absolute;
+			height: 250px;
+			width: 512px;
+		}
+	</style>
+	
+	<body>
+		<div class="box" id="box">
+			<img src="mi.png" alt="" id="photo" />
+			<div class="top"></div>
+			<div class="bottom"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var box =document.getElementById("box");
+			var photo=document.getElementById("photo");
+			var num=0;
+			var clock=null; 
+			//定时器设为全局变量 才可在两个函数中操作
+			box.children[1].onmouseover = function(){
+				clearInterval(clock);
+				clock =	setInterval(function(){
+						if( num<=-960){   
+							clearInterval(clock);
+						}else{
+							num-=3;
+							photo.style.top=num+"px";
+	
+						}
+					},30);
+				
+			}
+			box.children[2].onmouseover=function(){
+				clearInterval(clock);
+				clock=setInterval(function(){
+					if(num>=1470){
+						clearInterval(clock);
+					}else{
+						num=num+3;
+						photo.style.top=num+"px";
+					}
+				},30)
+			}
+		}
+		
+	</script>
+</html>

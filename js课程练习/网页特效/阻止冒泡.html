@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<button id="btn">向思云是傻逼</button>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		btn.onclick = function(event){
+			alert("11");
+			if(event&&event.stopPropagation){
+				event.stopPropagation();
+			}else{
+				event.cancelBubble();
+			}
+		}
+//		btn的父辈
+		document.onclick = function(){
+			alert("我也觉得");
+		}
+	</script>
+</html>

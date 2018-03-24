@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			*{
+				margin: 0;;
+				padding: 0;
+			}
+			.box{
+				border: 4px solid #EEEEEE;
+				width: 400px;
+				height: 400px;
+				margin:100px 200px;
+				position: relative;
+			}
+			.nav{
+				width: 400px;
+				height: 25px;
+				background-color:#7C9299 ;
+				position: absolute;
+				color:#FFFFEF ;
+				cursor: move;
+			}
+			.close{
+				position: absolute;
+				top: 0;
+				right:10px;
+			}
+			
+		</style>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div class="nav" id="nav">
+				注册信息(可以拖拽)
+				<div class="close">关闭</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var nav =box.children[0];
+		nav.onmousedown = function(event){
+			var event =event || window.event;
+//			先求出点击时父盒子离最左边距离;
+			var leftVal = event.clientX - box.offsetLeft;
+			var topVal =event.clientY - box.offsetTop;
+			document.onmousemove = function(event){
+				window.getSelection?window.getSelection().removeAllRanges():document.selection.empty();
+				var event =event||window.event;
+	//注意要减去外边距
+				var left = event.clientX - leftVal-200;
+				var top = event.clientY-topVal -100;
+				box.style.left = left + "px";
+				box.style.top= top+"px";
+			}
+		}
+		document.onmouseup= function(event){
+			document.onmousemove =null;
+		}
+	</script>
+</html>

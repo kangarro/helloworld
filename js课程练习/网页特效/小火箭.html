@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				width: 2000px;
+			}
+			
+			.top {
+				position: fixed;
+				bottom: 100px;
+				right: 100px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="gotop" class="top">
+			<img src="../images/Top.jpg" alt="" />
+		</div>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+		<p>我是内容部分，有很多恩多很多</p>
+	</body>
+	<script src="a.js"></script>
+	<script type="text/javascript">
+		var leader = 0;
+		var target = 0;
+		var timer = null;
+		var gotop = $("gotop");
+		window.onscroll = function() {
+			var scroll_top = returnTop().top;
+			scroll_top > 100 ? gotop.style.display = "block" : gotop.style.display = "none";
+			leader = scroll_top;
+		}
+		gotop.onclick = function() {
+			timer = setInterval(function() {
+				leader = leader + (target - leader) / 10;
+				window.scrollTo(0, leader);
+				if(target == leader){
+					clearInterval(timer);
+				}
+				if(target == leader) {
+					clearInterval(timer);
+				}
+			}, 20)
+		}
+	</script>
+
+</html>

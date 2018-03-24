@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*body{
+				background-color: yellow;
+			}*/
+		</style>
+	</head>
+	<body>
+	</body>
+	<script src = "a.js"></script>
+	<script type="text/javascript">
+		//在页面刚打开时运行给背景颜色
+		reSize();
+		window.onresize =reSize;
+		
+		function reSize(){
+			if(returnWidth().width>900){
+				document.body.style.backgroundColor="red";
+			} 
+			else if(returnWidth().width>600 ){
+				document.body.style.backgroundColor ="yellow";
+			}
+			else{
+				document.body.style.backgroundColor="blue";
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script  type="text/javascript"  src="http://code.jquery.com/jquery-latest.js"></script>
+		<style type="text/css">
+			p{
+				width: 100px;
+				height: 40px;
+				background-color: aliceblue;
+				color:black;
+			}
+		</style>
+	</head>
+	<body>
+		账号:<input type="text"  id="number" value="" />
+		昵称:<input type="text"  id="name" value="" />
+		密码：<input type="password" id="password">
+		<p id="text"></p>
+		<input type="button"  id="submit" value="注册" />
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#submit").click(function(){
+					var number=$("#number").val();
+					var password=$("#password").val();
+					var name=$("#name").val();
+					if(number!=""&&number!=null&&password!=""&&password!=null&&name!=""&&name!=null){
+						check(number,password,name);
+					}else{
+						alert("请填完注册信息"); 
+					}
+				})
+			})
+		function check(number,password,name){
+			$.ajax({
+					url:"regist.php?number="+number+"&name="+name+"&password="+password,
+					type:"GET",
+					success:function(msg){
+						if(msg=="exist"){
+							$("p").text("账号存在");
+						}
+						if(msg=="existname"){
+							$("p").text("昵称存在");
+						}
+						if(msg=="success"){
+							location.assign("home.php");
+						}
+	
+					}
+				})
+		}
+	</script>
+	</body>
+</html>

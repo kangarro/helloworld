@@ -1,0 +1,64 @@
+.w-slider{
+	width: 310px;
+	height: 265px;
+	margin:100px auto;
+	position: relative;
+	overflow: hidden;
+}
+img{
+	vertical-align: top;
+}
+/*上面部分*/
+.slider{
+	width: 310px;
+	height: 220px;
+}
+/*两个盒子*/
+.slider-main{
+	width: 620px;
+	height: 220px;
+}
+.slider-main-img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 310px;
+	height: 220px;
+}
+.slider-ctrl{
+	text-align: center;
+	padding-top: 5px;
+}
+.slider-ctrl-con{
+	width: 24px;
+	height: 20px;
+	display: inline-block;
+	/*行内块 可以用text-align居中*/
+	background: url(images/icon.png) no-repeat -24px -782px;
+	margin: 0 5px;
+	cursor: pointer;
+	/*用以下样式隐藏innerhtml*/
+	text-indent:-15em;
+	overflow:hidden;
+}
+.current{
+	background-position: -24px -762px;
+}
+.slider-ctrl-prev,
+.slider-ctrl-next{
+	position: absolute;
+	top: 50%;
+	margin-top: -35px;
+	width: 30px;
+	height: 35px;
+	background: url(images/icon.png) no-repeat 6px top;	
+	opacity: 0.7;
+	cursor: pointer;
+}
+.slider-ctrl-prev{
+	left: 0;
+}
+.slider-ctrl-next{
+	right: 0;
+	background-position: -6px -44px;
+}

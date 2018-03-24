@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.big{
+				width: 220px;
+				height: 150px;
+				background-color:#9A99FF;
+				margin: 100px auto;
+				text-align: center;
+
+
+			}
+			p{
+				width: 220px;
+				height: 40px;
+				line-height: 40px;
+				
+			}
+			.num{
+				width: 100px;
+				height: 80px;
+				background-color: #0000FF;
+				margin:5px auto;
+				line-height: 80px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="big" id="big">
+			<p></p>
+			<div class="num"></div>
+		</div>
+		<script type="text/javascript">
+			window.onload=function(){
+				setInterval(a,1000);
+			}
+			function a(){
+				var arr =["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+				var date=new Date();
+				var time=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+arr[date.getDay()]+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+				var big=document.getElementById("big");
+				big.children[0].innerHTML=time;
+				big.children[1].innerHTML=date.getDate();
+			}
+		</script>
+	</body>
+</html>

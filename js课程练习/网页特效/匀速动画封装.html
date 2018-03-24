@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/**{
+				margin: 0;padding: 0;
+			}*/
+			.box{
+				width: 200px;
+				height: 200px;
+				background-color: #7C9299;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="short" >200</button>
+		<button id="long">400</button>
+		<div class="box" id="box" ></div>
+	</body>
+	<script type="text/javascript">
+		function $(id)	{return document.getElementById(id)}
+		$("short").onclick=function(){
+			animate($("box"),200);
+		}
+		$("long").onclick = function(){
+			animate($("box"),400);
+		}
+		function animate(obj,target){
+			clearInterval(obj.timer);
+			var speed = obj.offsetLeft>target?-10:10;
+			obj.timer=setInterval(function(){
+				obj.style.left =obj.offsetLeft+speed+"px";//设置定位才可以设置left
+				if(Math.abs(target-obj.offsetLeft)<10){
+					clearInterval(obj.timer);
+					obj.style.left = target+"px"
+				}
+			},30)
+		}
+	</script>
+</html>

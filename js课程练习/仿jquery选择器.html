@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 20px;
+				height: 20px;
+				border: 1px dotted;
+				margin: 10px auto;
+				background-color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="a"></div>
+		<div class="c"></div>
+		<div class="c"></div>
+		<div class="c"></div>
+		<div class="c"></div>
+	</body>
+	<script type="text/javascript">
+//		document.getClassName()返回数组
+		function getClassName(a) { //不可用关键字做参数
+			var all = document.getElementsByTagName("*");
+			var arr = []; //注意声明为数组
+			for(var i = 0; i < all.length; i++) {
+				if(all[i].className == a) {
+					arr.push(all[i]);
+				}
+			}
+			return arr;
+		}
+		//		var a = getClassName("c");
+		//		for(var k = 0; k < a.length; k++) {
+		//			a[k].style.backgroundColor = "red";
+		//		}
+		//目的是通过“#”，“."等确定是哪种选择器
+		function $(name) {
+			var fuhao = name.charAt(0);
+			var str = name.substr(1);
+			switch(fuhao) {
+				case "#":
+					return document.getElementById(str);
+				case ".":
+					return getClassName(str);
+				default:
+					return document.getElementsByTagName(str);
+			}
+		}
+		$("#a").style.backgroundColor = "red";
+		var classarr = $(".c");
+		for(var k=0;k<classarr.length;k++){
+			classarr[k].style.backgroundColor = "yellow";
+		}
+		
+	</script>
+
+</html>

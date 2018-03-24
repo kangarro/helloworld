@@ -1,0 +1,98 @@
+<!--若a比b权重高，js不能通过增加b类来改变样式-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style:none;
+			}
+			.box{
+				width: 490px;
+				height: 170px;
+				margin: 100px auto;
+				overflow: hidden;
+				position: relative;
+			}
+			img{
+				width: 490px;
+				height: 170px;
+			}
+			ul{
+				width:2500px;
+				height: 170px;
+				position: absolute; 
+				left: 0;
+				top: 0; 
+			}
+			li{
+				float: left;          /*li的容器需够大,才能实现浮动*/
+			}
+			.num{
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+			}
+			span{
+				display: inline-block;
+				margin-left:10px ;
+				background-color:deeppink ;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+			}
+			.change{
+				background-color: yellow;  
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul id="pic">
+				<li ><img src="images/01.jpg"/></li>
+				<li><img src="images/02.jpg"/></li>
+				<li><img src="images/03.jpg"/></li>
+				<li><img src="images/04.jpg"/></li>
+				<li><img src="images/05.jpg"/></li>
+			</ul>
+			<div class="num" id="num">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var leader=0;
+		var target=0;
+		var num =document.getElementById("num").children;
+		var ul=document.getElementById("pic");
+		for(var i=0;i<num.length;i++){
+			num[i].index=i;
+			num[i].onmouseover = function(){
+//				clearInterval(leader);
+				for(var j =0 ;j<num.length;j++){
+					num[j].className=" ";
+				}
+				this.className="change";
+				target=(-this.index*490);
+			}
+		}
+//		setInterval(function(){
+//			 leader = leader + (target-leader)/10;
+//			 ul.style.left=leader+"px";
+//		},30)
+setInterval(function() {
+        leader = leader + (target - leader ) / 10;
+//      没有限制一定要走到终点,所以不用清除定时器
+        ul.style.left = leader + "px";
+    },1000);
+	</script>
+</html>

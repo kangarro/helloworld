@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>发送短信</button>
+	</body>
+	<script type="text/javascript">
+			var button =document.getElementsByTagName("button");
+			var time=5;
+//			先定义定时器名称;
+			var sethour=null;
+			button[0].onclick = function(){
+				clearInterval(sethour);
+				 this.disabled=true;
+				 var that = this;
+
+//				将this存于that中,因为后文用到;
+				 sethour= setInterval(a,1000);
+
+			function a(){
+//				此处不可用循环
+				if(time>=0){
+					that.innerHTML ="还剩余"+ time+"秒";
+					time--;
+					return;
+				}
+					that.innerHTML="重新发送短信";
+					that.disabled=false;
+					clearInterval(sethour);
+					time=5;
+
+			}
+		}
+			
+//		要注意花括号的结束 会决定变量that的作用域
+	</script>
+</html>
